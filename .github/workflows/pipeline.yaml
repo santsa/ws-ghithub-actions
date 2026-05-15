@@ -23,7 +23,8 @@ jobs:
         run: ls -la
 
       - name: Print message job1
-        run: echo "Hello, world!"
+        run: echo "Hello, ${{ vars.NAME }}
+}}"
 
       - name: Echo file
         run: cat hola.txt
