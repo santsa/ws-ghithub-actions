@@ -14,28 +14,44 @@ on:
 
 jobs:
   job1:
+    environment:
+      - name: develop
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v5
+      - name: Print message job1
+        run: echo "Hello, Algo-${{ vars.NAME }}"
+
+      - name: ECHO SECRETO
+        run: echo "${{ secrets.SECRETO }}" > secreto1.txt      
 
       - name: List files
         run: ls -la
 
-      - name: Print message job1
-        run: echo "Hello, Algo-${{ vars.NAME }}-MAS!"
-
-      - name: ECHO SECRETO
-        run: echo "${{ secrets.SECRETO }}" > secreto.txt
-
-      - name: Echo file
-        run: 
-            cat hola.txt
-
   job2:
+    environment:
+      - name: production
     needs: job1
     runs-on: ubuntu-latest
     steps:
       - name: Print message job2
-        run: echo "Hello, world! job2"
+        run: echo "Hello, Algo-${{ vars.NAME }}"
+
+      - name: ECHO SECRETO
+        run: echo "${{ secrets.SECRETO }}" > secreto2.txt      
+
+      - name: List files
+        run: ls -la
+
+  job3:
+    needs: job1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print message job2
+        run: echo "Hello, Algo-${{ vars.NAME }}"
+
+      - name: ECHO SECRETO
+        run: echo "${{ secrets.SECRETO }}" > secreto3.txt      
+
+      - name: List files
+        run: ls -la
       
