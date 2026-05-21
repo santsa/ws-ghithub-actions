@@ -31,7 +31,6 @@ jobs:
       - name: Echo file
         run: 
             cat hola.txt
-            cat secreto.txt
 
   job2:
     needs: job1
