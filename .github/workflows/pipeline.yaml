@@ -14,8 +14,7 @@ on:
 
 jobs:
   job1:
-    environment:
-      - name: develop
+    environment: develop
     runs-on: ubuntu-latest
     steps:
       - name: Print message job1
@@ -28,8 +27,7 @@ jobs:
         run: ls -la
 
   job2:
-    environment:
-      - name: production
+    environment: production
     needs: job1
     runs-on: ubuntu-latest
     steps:
