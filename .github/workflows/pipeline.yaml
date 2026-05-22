@@ -14,11 +14,7 @@ on:
       - "*.md"    
 
   env:
-<<<<<<< HEAD
     FULL_NAME: ${{ github.actor }}-${{ github.ref_name }}
-=======
-    FULL_NAME: ${{ github.actor}}-${{ github.ref_name}}
->>>>>>> c852c476efb77312af3ed134e2382d5ba3cf95f0
     ENVIRONMENT: default
 
 jobs:
