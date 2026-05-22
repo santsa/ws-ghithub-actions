@@ -13,9 +13,15 @@ on:
     paths:
       - "*.md"    
 
+<<<<<<< HEAD
 env:
   FULL_NAME: ${{ github.actor }}-${{ github.ref_name }}
   ENVIRONMENT: default
+=======
+  env:
+    FULL_NAME: ${{ github.actor }}-${{ github.ref_name }}
+    ENVIRONMENT: default
+>>>>>>> 64d64cee33ed8902d44ccd11ffc37717a344af89
 
 jobs:
   job1:
