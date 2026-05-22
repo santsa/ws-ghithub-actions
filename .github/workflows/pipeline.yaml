@@ -13,13 +13,19 @@ on:
     paths:
       - "*.md"    
 
+  env:
+    FULL_NAME: ${{ github.actor}}-${{ github.ref_name}}
+    ENVIRONMENT: default
+
 jobs:
   job1:
     environment: ${{ github.ref_name == 'main' && 'production' || 'develop' }}
     runs-on: ubuntu-latest
+    env:
+      ENVIRONMENT: ${{ github.ref_name == 'main' && 'production' || 'develop' }}
     steps:
       - name: Print message job1
-        run: echo "Hello, Algo-${{ vars.NAME }}"
+        run: echo "Hello, Algo-${{ vars.NAME }}! ${{ env.ENVIRONMENT }}"
 
       - name: ECHO SECRETO
         run: echo "${{ secrets.SECRETO }}" > secreto1.txt      
